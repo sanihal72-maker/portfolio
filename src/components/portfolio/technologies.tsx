@@ -3,6 +3,7 @@
 import * as React from "react";
 import { usePortfolio } from "./data-context";
 import { Section, SectionHeading } from "./section";
+import { TechLogo } from "./tech-logos";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -24,12 +25,7 @@ function TechBadge({
       whileHover={{ y: -3 }}
       className="group flex items-center gap-3 rounded-xl border border-border bg-card p-4 transition-colors hover:border-primary/40"
     >
-      <span
-        className="flex size-9 shrink-0 items-center justify-center rounded-lg font-mono text-sm font-bold text-white"
-        style={{ backgroundColor: color || "#8B5CF6" }}
-      >
-        {name.charAt(0)}
-      </span>
+      <TechLogo name={name} fallbackColor={color} />
       <div className="min-w-0">
         <div className="truncate text-sm font-semibold text-foreground">{name}</div>
       </div>
