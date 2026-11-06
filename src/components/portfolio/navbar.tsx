@@ -1,9 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { Menu, X, MessageCircle } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { usePortfolio } from "./data-context";
-import { useAppStore } from "@/store/app-store";
 import { getIcon } from "./icons";
 import { cn } from "@/lib/utils";
 
@@ -25,15 +24,9 @@ const MOBILE_SECTIONS = [
 
 export function Navbar() {
   const { socials, settings, profile } = usePortfolio();
-  const setView = useAppStore((s) => s.setView);
   const [scrolled, setScrolled] = React.useState(false);
   const [active, setActive] = React.useState("#home");
   const [open, setOpen] = React.useState(false);
-
-  const whatsapp = socials.find((s) => s.platform === "whatsapp");
-  const whatsappUrl =
-    whatsapp?.url ||
-    (settings?.whatsappNumber ? `https://wa.me/${settings.whatsappNumber.replace(/[^0-9]/g, "")}` : "#");
 
   React.useEffect(() => {
     const onScroll = () => {
@@ -97,15 +90,6 @@ export function Navbar() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-all hover:bg-primary/90 hover:shadow-[0_0_0_1px_rgba(139,92,246,0.4),0_8px_30px_-12px_rgba(139,92,246,0.6)] sm:flex"
-            >
-              <MessageCircle className="size-4" />
-              WhatsApp
-            </a>
             <button
               onClick={() => setOpen((o) => !o)}
               className="flex size-10 items-center justify-center rounded-lg border border-border bg-card text-foreground transition-colors hover:border-primary/50 md:hidden"
@@ -136,15 +120,6 @@ export function Navbar() {
                   {s.label}
                 </a>
               ))}
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-1 flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground"
-              >
-                <MessageCircle className="size-4" />
-                WhatsApp
-              </a>
               <div className="mt-3 flex items-center justify-center gap-3 border-t border-border pt-3">
                 {socials
                   .filter((s) => s.platform !== "whatsapp" && s.platform !== "email")
