@@ -1,0 +1,247 @@
+// Prisma schema — Personal Portfolio & Dynamic Admin CMS
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ---------- AUTH ----------
+model Admin {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  password  String // bcrypt hashed
+  role      String   @default("owner")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ---------- PROFILE ----------
+model Profile {
+  id              String   @id @default(cuid())
+  name            String
+  title           String // professional role
+  bio             String // short hero intro
+  about           String // long about text
+  approach        String? // development approach
+  values          String? // professional values (newline separated)
+  email           String
+  phone           String? // whatsapp number
+  location        String?
+  photoUrl        String? // optional portrait (about section only)
+  available       Boolean  @default(true)
+  yearsExperience Int      @default(5)
+  projectsDone    Int      @default(40)
+  clientsServed   Int      @default(30)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+// ---------- SKILLS / TECHNOLOGIES ----------
+model Skill {
+  id        String   @id @default(cuid())
+  name      String
+  category  String // "Core PHP Stack" | "Modern JavaScript Stack" | custom
+  icon      String? // lucide icon name or emoji-free identifier
+  color     String? // hex/brand color
+  order     Int      @default(0)
+  visible   Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([category])
+}
+
+// ---------- CATEGORIES ----------
+model Category {
+  id        String   @id @default(cuid())
+  name      String
+  slug      String   @unique
+  type      String // "service" | "project"
+  order     Int      @default(0)
+  services  Service[]
+  projects  Project[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ---------- SERVICES ----------
+model Service {
+  id          String   @id @default(cuid())
+  number      Int      @default(0) // display order number e.g. 01
+  title       String
+  slug        String   @unique
+  icon        String // lucide icon name
+  summary     String // short description
+  content     String? // detailed markdown content
+  features    String? // newline-separated key points
+  featured    Boolean  @default(false)
+  order       Int      @default(0)
+  visible     Boolean  @default(true)
+  categoryId  String?
+  category    Category? @relation(fields: [categoryId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// ---------- SOLUTIONS (Ready-made software products) ----------
+model Solution {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  tagline     String
+  technology  String // "Pure PHP + MySQL"
+  status      String // "Live" | "Development" | "Coming Soon"
+  summary     String
+  description String? // detailed content
+  demoUrl     String?
+  industries  String? // newline-separated supported industries
+  pricingNote String?
+  order       Int      @default(0)
+  visible     Boolean  @default(true)
+  features    SolutionFeature[]
+  images      SolutionImage[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model SolutionFeature {
+  id         String   @id @default(cuid())
+  solutionId String
+  solution   Solution @relation(fields: [solutionId], references: [id], onDelete: Cascade)
+  title      String
+  order      Int      @default(0)
+}
+
+model SolutionImage {
+  id         String   @id @default(cuid())
+  solutionId String
+  solution   Solution @relation(fields: [solutionId], references: [id], onDelete: Cascade)
+  url        String
+  caption    String?
+  order      Int      @default(0)
+}
+
+// ---------- PROJECTS ----------
+model Project {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  categoryName String // e.g. "E-commerce", "POS/ERP", "Management System"
+  technology  String
+  status      String // "Live" | "Development" | "Coming Soon"
+  summary     String
+  objectives  String? // detailed
+  features    String? // newline-separated
+  devDetails  String? // development details
+  demoUrl     String?
+  githubUrl   String?
+  thumbnail   String? // main visual
+  featured    Boolean  @default(true)
+  order       Int      @default(0)
+  visible     Boolean  @default(true)
+  categoryId  String?
+  category    Category? @relation(fields: [categoryId], references: [id])
+  images      ProjectImage[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model ProjectImage {
+  id         String   @id @default(cuid())
+  projectId  String
+  project    Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  url        String
+  caption    String?
+  order      Int      @default(0)
+}
+
+// ---------- TESTIMONIALS ----------
+model Testimonial {
+  id           String   @id @default(cuid())
+  clientName   String
+  designation  String
+  business     String?
+  review       String
+  rating       Int      @default(5)
+  date         DateTime?
+  projectRef   String? // related project title
+  screenshotUrl String? // original review screenshot
+  photoUrl     String?
+  visible      Boolean  @default(true)
+  order        Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+// ---------- SOCIAL LINKS ----------
+model SocialLink {
+  id        String   @id @default(cuid())
+  platform  String   @unique // facebook, instagram, x, linkedin, github, whatsapp
+  label     String
+  url       String
+  icon      String // lucide icon name
+  enabled   Boolean  @default(true)
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ---------- INQUIRIES ----------
+model Inquiry {
+  id         String   @id @default(cuid())
+  name       String
+  email      String
+  phone      String?
+  service    String?
+  budget     String?
+  details    String
+  status     String   @default("new") // new | read | contacted | completed | archived
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([status])
+  @@index([createdAt])
+}
+
+// ---------- NAVIGATION ----------
+model NavigationItem {
+  id        String   @id @default(cuid())
+  label     String
+  href      String // anchor e.g. #home, #about
+  icon      String?
+  order     Int      @default(0)
+  enabled   Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ---------- SITE SETTINGS ----------
+model SiteSetting {
+  id            String   @id @default(cuid())
+  siteName      String   @default("Arya Dev")
+  logoUrl       String?
+  faviconUrl    String?
+  primaryColor  String   @default("#8B5CF6")
+  contactEmail  String   @default("hello@aryadev.com")
+  whatsappNumber String  @default("")
+  footerContent String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+// ---------- SEO SETTINGS ----------
+model SeoSetting {
+  id             String   @id @default(cuid())
+  page           String   @unique // home, about, services, etc.
+  metaTitle      String
+  metaDescription String
+  canonicalUrl   String?
+  ogImageUrl     String?
+  robots         String   @default("index, follow")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
