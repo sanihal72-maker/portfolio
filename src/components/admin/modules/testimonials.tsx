@@ -44,7 +44,7 @@ import {
   PageHeader,
   ScrollArea,
 } from "../shared";
-import type { Testimonial } from "@/lib/types";
+import type { Testimonial, Project } from "@/lib/types";
 
 type TestimonialForm = {
   clientName: string;
@@ -86,6 +86,7 @@ function toDateInput(value: string | null | undefined): string {
 
 export function TestimonialsModule() {
   const [testimonials, setTestimonials] = React.useState<Testimonial[]>([]);
+  const [projects, setProjects] = React.useState<Project[]>([]);
   const [loading, setLoading] = React.useState(true);
   const [dialogOpen, setDialogOpen] = React.useState(false);
   const [editing, setEditing] = React.useState<Testimonial | null>(null);
@@ -95,8 +96,14 @@ export function TestimonialsModule() {
 
   const load = React.useCallback(() => {
     setLoading(true);
-    fetchJson<{ testimonials: Testimonial[] }>("/api/admin/testimonials")
-      .then(({ testimonials }) => setTestimonials(testimonials))
+    Promise.all([
+      fetchJson<{ testimonials: Testimonial[] }>("/api/admin/testimonials"),
+      fetchJson<{ projects: Project[] }>("/api/admin/projects"),
+    ])
+      .then(([tRes, pRes]) => {
+        setTestimonials(tRes.testimonials);
+        setProjects(pRes.projects);
+      })
       .catch((err) =>
         toast.error(err instanceof Error ? err.message : "Failed to load testimonials")
       )
@@ -107,6 +114,18 @@ export function TestimonialsModule() {
     load();
   }, [load]);
 
+  // Resolve a stored projectRef (id or legacy title) to a display title
+  function resolveProjectTitle(ref: string | null | undefined): string | null {
+    if (!ref) return null;
+    const byId = projects.find((p) => p.id === ref);
+    if (byId) return byId.title;
+    const byTitle = projects.find(
+      (p) => p.title.toLowerCase() === ref.toLowerCase()
+    );
+    if (byTitle) return byTitle.title;
+    return ref; // legacy free-text
+  }
+
   function openCreate() {
     setEditing(null);
     setForm(EMPTY_FORM);
@@ -115,6 +134,18 @@ export function TestimonialsModule() {
 
   function openEdit(t: Testimonial) {
     setEditing(t);
+    // Normalize legacy title-based projectRef to a project id so the
+    // dropdown shows the correct selection.
+    let normalizedRef = t.projectRef ?? "";
+    if (normalizedRef) {
+      const byId = projects.find((p) => p.id === normalizedRef);
+      if (!byId) {
+        const byTitle = projects.find(
+          (p) => p.title.toLowerCase() === normalizedRef.toLowerCase()
+        );
+        if (byTitle) normalizedRef = byTitle.id;
+      }
+    }
     setForm({
       clientName: t.clientName,
       designation: t.designation,
@@ -122,7 +153,7 @@ export function TestimonialsModule() {
       review: t.review,
       rating: t.rating,
       date: toDateInput(t.date),
-      projectRef: t.projectRef ?? "",
+      projectRef: normalizedRef,
       screenshotUrl: t.screenshotUrl ?? null,
       photoUrl: t.photoUrl ?? null,
       visible: t.visible,
@@ -274,7 +305,7 @@ export function TestimonialsModule() {
                       </Badge>
                     </TableCell>
                     <TableCell className="hidden md:table-cell text-muted-foreground">
-                      {t.projectRef ?? "—"}
+                      {resolveProjectTitle(t.projectRef) ?? "—"}
                     </TableCell>
                     <TableCell className="hidden md:table-cell text-muted-foreground">
                       {formatDate(t.date)}
@@ -330,12 +361,28 @@ export function TestimonialsModule() {
                   onChange={(e) => setForm((f) => ({ ...f, business: e.target.value }))}
                 />
               </FieldRow>
-              <FieldRow label="Project reference">
-                <Input
-                  value={form.projectRef}
-                  onChange={(e) => setForm((f) => ({ ...f, projectRef: e.target.value }))}
-                  placeholder="Related project title"
-                />
+              <FieldRow label="Related project">
+                <Select
+                  value={form.projectRef || "none"}
+                  onValueChange={(v) =>
+                    setForm((f) => ({
+                      ...f,
+                      projectRef: v === "none" ? "" : v,
+                    }))
+                  }
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select a project" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="none">No project</SelectItem>
+                    {projects.map((p) => (
+                      <SelectItem key={p.id} value={p.id}>
+                        {p.title}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </FieldRow>
             </div>
             <FieldRow label="Review">
@@ -380,7 +427,7 @@ export function TestimonialsModule() {
                   size={64}
                 />
               </FieldRow>
-              <FieldRow label="Screenshot (original review)">
+              <FieldRow label="Screenshot / evidence URL">
                 <ImageUpload
                   value={form.screenshotUrl}
                   onChange={(v) => setForm((f) => ({ ...f, screenshotUrl: v }))}
