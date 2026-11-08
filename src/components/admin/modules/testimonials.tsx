@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Pencil, Plus, Star, Trash2 } from "lucide-react";
+import { ExternalLink, Pencil, Plus, Star, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
@@ -55,6 +55,7 @@ type TestimonialForm = {
   date: string;
   projectRef: string;
   screenshotUrl: string | null;
+  proofUrl: string | null;
   photoUrl: string | null;
   visible: boolean;
   order: number;
@@ -69,6 +70,7 @@ const EMPTY_FORM: TestimonialForm = {
   date: "",
   projectRef: "",
   screenshotUrl: null,
+  proofUrl: null,
   photoUrl: null,
   visible: true,
   order: 0,
@@ -155,6 +157,7 @@ export function TestimonialsModule() {
       date: toDateInput(t.date),
       projectRef: normalizedRef,
       screenshotUrl: t.screenshotUrl ?? null,
+      proofUrl: t.proofUrl ?? null,
       photoUrl: t.photoUrl ?? null,
       visible: t.visible,
       order: t.order,
@@ -178,6 +181,7 @@ export function TestimonialsModule() {
       date: form.date || null,
       projectRef: form.projectRef || null,
       screenshotUrl: form.screenshotUrl,
+      proofUrl: form.proofUrl ? form.proofUrl.trim() : null,
       photoUrl: form.photoUrl,
       visible: form.visible,
       order: form.order,
@@ -271,6 +275,7 @@ export function TestimonialsModule() {
                   <TableHead className="hidden md:table-cell">Designation</TableHead>
                   <TableHead>Rating</TableHead>
                   <TableHead className="hidden md:table-cell">Project</TableHead>
+                  <TableHead className="hidden md:table-cell">Proof</TableHead>
                   <TableHead className="hidden md:table-cell">Date</TableHead>
                   <TableHead className="w-[100px]">Visible</TableHead>
                   <TableHead className="w-[120px] text-right">Actions</TableHead>
@@ -306,6 +311,21 @@ export function TestimonialsModule() {
                     </TableCell>
                     <TableCell className="hidden md:table-cell text-muted-foreground">
                       {resolveProjectTitle(t.projectRef) ?? "—"}
+                    </TableCell>
+                    <TableCell className="hidden md:table-cell">
+                      {t.proofUrl ? (
+                        <a
+                          href={t.proofUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-xs text-primary hover:underline"
+                        >
+                          <ExternalLink className="size-3" />
+                          Link
+                        </a>
+                      ) : (
+                        <span className="text-xs text-muted-foreground">—</span>
+                      )}
                     </TableCell>
                     <TableCell className="hidden md:table-cell text-muted-foreground">
                       {formatDate(t.date)}
@@ -436,6 +456,13 @@ export function TestimonialsModule() {
                 />
               </FieldRow>
             </div>
+            <FieldRow label="Proof Link (URL)">
+              <Input
+                placeholder="https://..."
+                value={form.proofUrl ?? ""}
+                onChange={(e) => setForm((f) => ({ ...f, proofUrl: e.target.value }))}
+              />
+            </FieldRow>
             <div className="grid grid-cols-2 gap-4">
               <FieldRow label="Order">
                 <Input

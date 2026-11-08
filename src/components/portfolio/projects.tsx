@@ -1,9 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { ArrowUpRight, ExternalLink, Github, Clock } from "lucide-react";
+import { ExternalLink, Github, Clock } from "lucide-react";
 import { usePortfolio } from "./data-context";
-import { useAppStore } from "@/store/app-store";
 import { Section, SectionHeading } from "./section";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -38,7 +37,7 @@ function ProjectStatusBadge({ status }: { status: string }) {
   );
 }
 
-/** Compact browser-framed visual for a project card (not a fake screenshot) */
+/** Compact browser-framed visual for a project card */
 function CardVisual({ project }: { project: Project }) {
   const isPos = project.categoryName.toLowerCase().includes("pos");
   const isDashboard = project.categoryName.toLowerCase().includes("dashboard");
@@ -99,25 +98,16 @@ function CardVisual({ project }: { project: Project }) {
                   <div key={i} className="flex items-center gap-1">
                     <span className="size-1 rounded-full bg-primary" />
                     <div className="h-1 flex-1 rounded bg-border/60" />
-                    <div className="h-1 w-4 rounded bg-border/40" />
                   </div>
                 ))}
               </div>
             </div>
           ) : (
-            <div className="grid grid-cols-3 gap-1.5">
-              {[0, 1, 2, 3, 4, 5].map((i) => (
-                <div key={i} className="overflow-hidden rounded border border-border bg-card/50">
-                  <div
-                    className="aspect-[4/3] w-full"
-                    style={{
-                      background: `linear-gradient(135deg, #8B5CF6${i % 2 ? "22" : "12"}, transparent)`,
-                    }}
-                  />
-                  <div className="space-y-0.5 p-1">
-                    <div className="h-0.5 w-full rounded bg-border/60" />
-                    <div className="h-1 w-6 rounded bg-primary" />
-                  </div>
+            <div className="grid grid-cols-2 gap-1.5">
+              {[0, 1, 2, 3].map((i) => (
+                <div key={i} className="rounded border border-border bg-card/40 p-1.5">
+                  <div className="mb-1 h-1 w-3/4 rounded bg-border/60" />
+                  <div className="h-4 rounded bg-primary/10" />
                 </div>
               ))}
             </div>
@@ -125,11 +115,10 @@ function CardVisual({ project }: { project: Project }) {
         </div>
       </div>
 
-      {/* coming soon overlay */}
       {comingSoon && (
-        <div className="absolute inset-0 flex items-center justify-center bg-background/70 backdrop-blur-[2px]">
-          <span className="rotate-[-2deg] rounded-lg border border-amber-500/40 bg-amber-500/15 px-3 py-1.5 text-xs font-semibold text-amber-300">
-            In Development
+        <div className="absolute inset-0 flex items-center justify-center bg-background/80 backdrop-blur-[2px]">
+          <span className="rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 text-xs font-semibold text-amber-400">
+            Coming Soon
           </span>
         </div>
       )}
@@ -139,7 +128,6 @@ function CardVisual({ project }: { project: Project }) {
 
 export function Projects() {
   const { projects } = usePortfolio();
-  const openDetail = useAppStore((s) => s.openDetail);
 
   if (projects.length === 0) return null;
 
@@ -159,6 +147,7 @@ export function Projects() {
       <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {sorted.map((p, i) => {
           const comingSoon = p.status.toLowerCase() === "coming soon";
+          const hasDemo = Boolean(p.demoUrl && p.demoUrl.trim() !== "");
           const features = (p.features || "")
             .split("\n")
             .map((v) => v.trim())
@@ -171,19 +160,30 @@ export function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.45, delay: i * 0.05 }}
-              className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card transition-colors hover:border-primary/50"
+              className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all hover:border-primary/50 shadow-sm"
             >
-              {/* visual */}
-              <button
-                onClick={() => openDetail({ kind: "project", id: p.id })}
-                className="relative block text-left"
-                aria-label={`View ${p.title} details`}
-              >
-                <CardVisual project={p} />
-                <div className="absolute left-3 top-3">
-                  <ProjectStatusBadge status={p.status} />
+              {/* visual — opens Demo URL directly if available */}
+              {hasDemo && !comingSoon ? (
+                <a
+                  href={p.demoUrl!}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative block cursor-pointer transition-opacity group-hover:opacity-95"
+                  aria-label={`Open ${p.title} demo`}
+                >
+                  <CardVisual project={p} />
+                  <div className="absolute left-3 top-3">
+                    <ProjectStatusBadge status={p.status} />
+                  </div>
+                </a>
+              ) : (
+                <div className="relative block">
+                  <CardVisual project={p} />
+                  <div className="absolute left-3 top-3">
+                    <ProjectStatusBadge status={p.status} />
+                  </div>
                 </div>
-              </button>
+              )}
 
               {/* body */}
               <div className="flex flex-1 flex-col p-5">
@@ -196,14 +196,22 @@ export function Projects() {
                   </span>
                 </div>
 
-                <button
-                  onClick={() => openDetail({ kind: "project", id: p.id })}
-                  className="text-left"
-                >
-                  <h3 className="text-base font-semibold tracking-tight text-foreground transition-colors group-hover:text-primary">
+                {hasDemo && !comingSoon ? (
+                  <a
+                    href={p.demoUrl!}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-left"
+                  >
+                    <h3 className="text-base font-semibold tracking-tight text-foreground transition-colors group-hover:text-primary">
+                      {p.title}
+                    </h3>
+                  </a>
+                ) : (
+                  <h3 className="text-base font-semibold tracking-tight text-foreground">
                     {p.title}
                   </h3>
-                </button>
+                )}
                 <p className="mt-1 text-[11px] font-medium text-primary">{p.technology}</p>
 
                 <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
@@ -228,41 +236,36 @@ export function Projects() {
                   </div>
                 )}
 
-                {/* footer actions */}
-                <div className="mt-auto flex items-center gap-2 pt-5">
-                  <button
-                    onClick={() => openDetail({ kind: "project", id: p.id })}
-                    className="group/btn inline-flex items-center gap-1.5 text-sm font-medium text-primary"
-                  >
-                    View Details
-                    <ArrowUpRight className="size-4 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
-                  </button>
-                  <div className="ml-auto flex items-center gap-1.5">
-                    {p.demoUrl && p.demoUrl !== "#" && !comingSoon && (
-                      <a
-                        href={p.demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="flex size-8 items-center justify-center rounded-md border border-border bg-background text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary"
-                        aria-label="Live demo"
-                      >
-                        <ExternalLink className="size-3.5" />
-                      </a>
-                    )}
-                    {p.githubUrl && (
-                      <a
-                        href={p.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="flex size-8 items-center justify-center rounded-md border border-border bg-background text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary"
-                        aria-label="GitHub repository"
-                      >
-                        <Github className="size-3.5" />
-                      </a>
-                    )}
-                  </div>
+                {/* footer actions — only Demo URL and GitHub */}
+                <div className="mt-auto flex items-center justify-between gap-2 pt-5 border-t border-border/50">
+                  {hasDemo && !comingSoon ? (
+                    <a
+                      href={p.demoUrl!}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/btn inline-flex items-center gap-1.5 rounded-lg border border-primary/30 bg-primary/10 px-3.5 py-1.5 text-xs font-semibold text-primary transition-all hover:bg-primary hover:text-white"
+                    >
+                      <span>Live Demo</span>
+                      <ExternalLink className="size-3.5 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                    </a>
+                  ) : (
+                    <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
+                      <Clock className="size-3.5" />
+                      <span>{comingSoon ? "Coming Soon" : "In Development"}</span>
+                    </span>
+                  )}
+
+                  {p.githubUrl && (
+                    <a
+                      href={p.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex size-8 items-center justify-center rounded-md border border-border bg-background text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary shadow-sm"
+                      aria-label="GitHub repository"
+                    >
+                      <Github className="size-3.5" />
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.article>

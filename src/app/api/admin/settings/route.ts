@@ -27,10 +27,34 @@ export async function PUT(req: Request) {
   };
 
   const existing = await db.siteSetting.findFirst();
+  let settings;
   if (existing) {
-    const settings = await db.siteSetting.update({ where: { id: existing.id }, data });
-    return jsonOk({ settings });
+    settings = await db.siteSetting.update({ where: { id: existing.id }, data });
+  } else {
+    settings = await db.siteSetting.create({ data });
   }
-  const settings = await db.siteSetting.create({ data });
+
+  // Keep social links and profile in sync with settings
+  if (data.contactEmail) {
+    await db.socialLink.updateMany({
+      where: { platform: "email" },
+      data: { url: `mailto:${data.contactEmail}` },
+    }).catch(() => {});
+    await db.profile.updateMany({
+      data: { email: data.contactEmail },
+    }).catch(() => {});
+  }
+
+  if (data.whatsappNumber) {
+    const cleanNum = data.whatsappNumber.replace(/[^0-9]/g, "");
+    await db.socialLink.updateMany({
+      where: { platform: "whatsapp" },
+      data: { url: `https://wa.me/${cleanNum}` },
+    }).catch(() => {});
+    await db.profile.updateMany({
+      data: { phone: data.whatsappNumber },
+    }).catch(() => {});
+  }
+
   return jsonOk({ settings });
 }

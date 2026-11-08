@@ -6,6 +6,8 @@ import { Toaster as SonnerToaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "next-themes";
 import { Providers } from "@/components/providers";
 
+import { db } from "@/lib/db";
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -18,38 +20,56 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Arya Dev — Full-Stack Developer & Business Solutions Specialist",
-  description:
-    "Premium portfolio of a Full-Stack Developer building websites, e-commerce, POS/ERP solutions, and AI SEO services. Custom software for real businesses.",
-  keywords: [
-    "Full-Stack Developer",
-    "Business Solutions",
-    "E-commerce Development",
-    "POS ERP",
-    "AI SEO",
-    "Website Development",
-    "React",
-    "Node.js",
-  ],
-  authors: [{ name: "Arya Dev" }],
-  icons: {
-    icon: "/logo.svg",
-  },
-  openGraph: {
-    title: "Arya Dev — Full-Stack Developer & Business Solutions Specialist",
-    description:
-      "Building digital experiences. Websites, E-commerce, POS/ERP, AI SEO and custom business solutions.",
-    siteName: "Arya Dev",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Arya Dev — Full-Stack Developer & Business Solutions Specialist",
-    description:
-      "Building digital experiences. Websites, E-commerce, POS/ERP, AI SEO and custom business solutions.",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  let favicon = "/logo.svg";
+  let siteName = "Sajid Al Nihal";
+  let description = "Premium portfolio of a Full-Stack Developer building websites, e-commerce, POS/ERP solutions, and AI SEO services.";
+
+  try {
+    const settings = await db.siteSetting.findFirst();
+    const profile = await db.profile.findFirst();
+    if (settings?.faviconUrl) favicon = settings.faviconUrl;
+    if (settings?.siteName) siteName = settings.siteName;
+    else if (profile?.name) siteName = profile.name;
+    if (profile?.bio) description = profile.bio;
+  } catch {
+    // fallback if db error
+  }
+
+  const title = `${siteName} — Full-Stack Developer & Business Solutions Specialist`;
+
+  return {
+    title,
+    description,
+    keywords: [
+      "Full-Stack Developer",
+      "Business Solutions",
+      "E-commerce Development",
+      "POS ERP",
+      "AI SEO",
+      "Website Development",
+      "React",
+      "Node.js",
+    ],
+    authors: [{ name: siteName }],
+    icons: {
+      icon: [{ url: favicon }],
+      shortcut: [{ url: favicon }],
+      apple: [{ url: favicon }],
+    },
+    openGraph: {
+      title,
+      description,
+      siteName,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+  };
+}
 
 export default function RootLayout({
   children,
@@ -59,6 +79,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="dark">
       <body
+        suppressHydrationWarning
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased bg-background text-foreground`}
       >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>

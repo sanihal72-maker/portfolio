@@ -114,7 +114,7 @@ export function AdminShell({
       <div className="flex items-center justify-between gap-2 border-b border-sidebar-border px-5 py-5">
         <div className="flex flex-col">
           <div className="flex items-center gap-2">
-            <span className="text-base font-semibold tracking-tight">Arya Dev</span>
+            <span className="text-base font-semibold tracking-tight">{admin.name || "Admin"}</span>
             <Badge className="bg-primary/15 text-primary border border-primary/20">
               Admin
             </Badge>

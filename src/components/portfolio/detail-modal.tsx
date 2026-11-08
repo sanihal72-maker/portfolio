@@ -139,9 +139,51 @@ export function DetailModal() {
                 </div>
               </div>
             )}
-            {sol.pricingNote && (
+            {/* Monthly Subscription plans for POS or general pricing note */}
+            {sol.slug.includes("pos") || sol.name.toLowerCase().includes("pos") ? (
+              <div className="rounded-xl border border-primary/25 bg-card/60 p-4">
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-primary">
+                  Monthly Subscription Plans
+                </h4>
+                <div className="mt-3 grid gap-3 sm:grid-cols-3">
+                  <div className="rounded-lg border border-border bg-background/60 p-3">
+                    <div className="text-xs font-medium text-muted-foreground">Startup</div>
+                    <div className="mt-1 flex items-baseline gap-1">
+                      <span className="text-lg font-bold text-foreground">$150</span>
+                      <span className="text-xs text-muted-foreground">/mo</span>
+                    </div>
+                    <p className="mt-1 text-[11px] text-muted-foreground">
+                      Point of Sale & single shop billing
+                    </p>
+                  </div>
+                  <div className="relative rounded-lg border border-primary/40 bg-primary/10 p-3">
+                    <span className="absolute -top-2 right-2 rounded-full bg-primary px-1.5 py-0.2 text-[9px] font-bold uppercase text-white">
+                      Popular
+                    </span>
+                    <div className="text-xs font-medium text-primary">Business</div>
+                    <div className="mt-1 flex items-baseline gap-1">
+                      <span className="text-lg font-bold text-foreground">$300</span>
+                      <span className="text-xs text-muted-foreground">/mo</span>
+                    </div>
+                    <p className="mt-1 text-[11px] text-muted-foreground">
+                      Multi-branch, inventory & accounts
+                    </p>
+                  </div>
+                  <div className="rounded-lg border border-border bg-background/60 p-3">
+                    <div className="text-xs font-medium text-muted-foreground">Enterprise</div>
+                    <div className="mt-1 flex items-baseline gap-1">
+                      <span className="text-lg font-bold text-foreground">$500</span>
+                      <span className="text-xs text-muted-foreground">/mo</span>
+                    </div>
+                    <p className="mt-1 text-[11px] text-muted-foreground">
+                      Full ERP, custom APIs & dedicated support
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ) : sol.pricingNote ? (
               <p className="text-xs text-muted-foreground">Pricing: {sol.pricingNote}</p>
-            )}
+            ) : null}
             <div className="flex flex-wrap gap-3 pt-2">
               {sol.demoUrl && sol.demoUrl !== "#" && (
                 <Button asChild>

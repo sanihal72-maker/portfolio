@@ -1,0 +1,896 @@
+{
+  "admin": [
+    {
+      "id": "cmw4zjdbc0000v4bacm1ahhmy",
+      "email": "admin@aryadev.com",
+      "name": "Arya Dev",
+      "password": "$2b$12$GcL7phqQunH8E2HZ8jOHyu1juXVzkZ44SNO4xDuVtxPzbw9cG8xpy",
+      "role": "owner",
+      "createdAt": "2026-11-06T13:03:19.849Z",
+      "updatedAt": "2026-11-06T13:03:19.849Z"
+    }
+  ],
+  "profile": [
+    {
+      "id": "profile-main",
+      "name": "Sajid Al Nihal",
+      "title": "Full-Stack Developer & Business Solutions Specialist",
+      "bio": "I build premium digital products — from custom websites and e-commerce platforms to advanced POS/ERP systems and AI-driven search visibility. Turning business problems into reliable software.",
+      "about": "I'm a Full-Stack Developer and Business Solutions Specialist with hands-on experience building production software used by real businesses. My work spans custom websites, e-commerce platforms, and advanced POS/ERP systems built on a solid PHP + MySQL foundation, alongside modern React + Node.js applications.\n\nOver the years I've shipped complete business management software for retail, pharmacy, fashion, grocery and restaurant industries — software that handles real sales, real inventory, and real money.",
+      "approach": "Business-first development: I start from the actual workflow a business runs every day, then design software that removes friction instead of adding it. Clean architecture, real validation, and interfaces that people can actually use.",
+      "values": "Build for real businesses, not demos.\nShip reliable software that runs in production.\nKeep interfaces minimal and fast.\nSupport what I build.\nNever fake results or testimonials.",
+      "email": "client.freelancer.sajid@gmail.com",
+      "phone": "+8801982288911",
+      "location": "Dhaka, Bangladesh",
+      "photoUrl": "/uploads/1794042556001-29d0e721eb13.png",
+      "available": true,
+      "yearsExperience": 6,
+      "projectsDone": 42,
+      "clientsServed": 28,
+      "createdAt": "2026-11-06T13:03:19.851Z",
+      "updatedAt": "2026-11-08T03:31:20.303Z"
+    }
+  ],
+  "skill": [
+    {
+      "id": "skill-core-0",
+      "name": "HTML5",
+      "category": "Core PHP Stack",
+      "icon": null,
+      "color": "#E34F26",
+      "order": 0,
+      "visible": true,
+      "createdAt": "2026-11-06T13:03:19.853Z",
+      "updatedAt": "2026-11-06T13:03:19.853Z"
+    },
+    {
+      "id": "skill-core-1",
+      "name": "CSS3",
+      "category": "Core PHP Stack",
+      "icon": null,
+      "color": "#1572B6",
+      "order": 1,
+      "visible": true,
+      "createdAt": "2026-11-06T13:03:19.854Z",
+      "updatedAt": "2026-11-06T13:03:19.854Z"
+    },
+    {
+      "id": "skill-core-2",
+      "name": "JavaScript",
+      "category": "Core PHP Stack",
+      "icon": null,
+      "color": "#F7DF1E",
+      "order": 2,
+      "visible": true,
+      "createdAt": "2026-11-06T13:03:19.855Z",
+      "updatedAt": "2026-11-06T13:03:19.855Z"
+    },
+    {
+      "id": "skill-core-3",
+      "name": "Bootstrap",
+      "category": "Core PHP Stack",
+      "icon": null,
+      "color": "#7952B3",
+      "order": 3,
+      "visible": true,
+      "createdAt": "2026-11-06T13:03:19.856Z",
+      "updatedAt": "2026-11-06T13:03:19.856Z"
+    },
+    {
+      "id": "skill-core-4",
+      "name": "Tailwind CSS",
+      "category": "Core PHP Stack",
+      "icon": null,
+      "color": "#06B6D4",
+      "order": 4,
+      "visible": true,
+      "createdAt": "2026-11-06T13:03:19.856Z",
+      "updatedAt": "2026-11-06T13:03:19.856Z"
+    },
+    {
+      "id": "skill-core-5",
+      "name": "Pure PHP",
+      "category": "Core PHP Stack",
+      "icon": null,
+      "color": "#777BB4",
+      "order": 5,
+      "visible": true,
+      "createdAt": "2026-11-06T13:03:19.858Z",
+      "updatedAt": "2026-11-06T13:03:19.858Z"
+    },
+    {
+      "id": "skill-core-6",
+      "name": "MySQL",
+      "category": "Core PHP Stack",
+      "icon": null,
+      "color": "#4479A1",
+      "order": 6,
+      "visible": true,
+      "createdAt": "2026-11-06T13:03:19.859Z",
+      "updatedAt": "2026-11-06T13:03:19.859Z"
+    },
+    {
+      "id": "skill-modern-0",
+      "name": "React.js",
+      "category": "Modern JavaScript Stack",
+      "icon": null,
+      "color": "#61DAFB",
+      "order": 0,
+      "visible": true,
+      "createdAt": "2026-11-06T13:03:19.859Z",
+      "updatedAt": "2026-11-06T13:03:19.859Z"
+    },
+    {
+      "id": "skill-modern-1",
+      "name": "Node.js",
+      "category": "Modern JavaScript Stack",
+      "icon": null,
+      "color": "#339933",
+      "order": 1,
+      "visible": true,
+      "createdAt": "2026-11-06T13:03:19.861Z",
+      "updatedAt": "2026-11-06T13:03:19.861Z"
+    },
+    {
+      "id": "skill-modern-2",
+      "name": "Express.js",
+      "category": "Modern JavaScript Stack",
+      "icon": null,
+      "color": "#888888",
+      "order": 2,
+      "visible": true,
+      "createdAt": "2026-11-06T13:03:19.862Z",
+      "updatedAt": "2026-11-06T13:03:19.862Z"
+    },
+    {
+      "id": "skill-modern-3",
+      "name": "PostgreSQL",
+      "category": "Modern JavaScript Stack",
+      "icon": null,
+      "color": "#4169E1",
+      "order": 3,
+      "visible": true,
+      "createdAt": "2026-11-06T13:03:19.863Z",
+      "updatedAt": "2026-11-06T13:03:19.863Z"
+    }
+  ],
+  "category": [
+    {
+      "id": "cmw4zjdbs0001v4banqdlycg3",
+      "name": "Web Development",
+      "slug": "web-development",
+      "type": "service",
+      "order": 0,
+      "createdAt": "2026-11-06T13:03:19.864Z",
+      "updatedAt": "2026-11-06T13:03:19.864Z"
+    },
+    {
+      "id": "cmw4zjdbt0002v4ba0zdfi8p9",
+      "name": "E-commerce",
+      "slug": "ecommerce",
+      "type": "service",
+      "order": 1,
+      "createdAt": "2026-11-06T13:03:19.865Z",
+      "updatedAt": "2026-11-06T13:03:19.865Z"
+    },
+    {
+      "id": "cmw4zjdbu0003v4bamvhryffj",
+      "name": "Business Software",
+      "slug": "business-software",
+      "type": "service",
+      "order": 2,
+      "createdAt": "2026-11-06T13:03:19.867Z",
+      "updatedAt": "2026-11-06T13:03:19.867Z"
+    },
+    {
+      "id": "cmw4zjdbw0004v4baalwmpbra",
+      "name": "Marketing",
+      "slug": "marketing",
+      "type": "service",
+      "order": 3,
+      "createdAt": "2026-11-06T13:03:19.868Z",
+      "updatedAt": "2026-11-06T13:03:19.868Z"
+    },
+    {
+      "id": "cmw4zjdbw0005v4ba0f5fvxwy",
+      "name": "Support",
+      "slug": "support",
+      "type": "service",
+      "order": 4,
+      "createdAt": "2026-11-06T13:03:19.869Z",
+      "updatedAt": "2026-11-06T13:03:19.869Z"
+    },
+    {
+      "id": "cmw4zjdbx0006v4bajcs90jgd",
+      "name": "Custom",
+      "slug": "custom",
+      "type": "service",
+      "order": 5,
+      "createdAt": "2026-11-06T13:03:19.869Z",
+      "updatedAt": "2026-11-06T13:03:19.869Z"
+    },
+    {
+      "id": "cmw4zjdby0007v4bakqgp66hu",
+      "name": "E-commerce",
+      "slug": "proj-ecommerce",
+      "type": "project",
+      "order": 6,
+      "createdAt": "2026-11-06T13:03:19.870Z",
+      "updatedAt": "2026-11-06T13:03:19.870Z"
+    },
+    {
+      "id": "cmw4zjdbz0008v4babzf5tmni",
+      "name": "POS / ERP",
+      "slug": "proj-pos-erp",
+      "type": "project",
+      "order": 7,
+      "createdAt": "2026-11-06T13:03:19.871Z",
+      "updatedAt": "2026-11-06T13:03:19.871Z"
+    },
+    {
+      "id": "cmw4zjdc00009v4ba01hefaha",
+      "name": "Management System",
+      "slug": "proj-management",
+      "type": "project",
+      "order": 8,
+      "createdAt": "2026-11-06T13:03:19.872Z",
+      "updatedAt": "2026-11-06T13:03:19.872Z"
+    },
+    {
+      "id": "cmw4zjdc0000av4baeh560xab",
+      "name": "Dashboard",
+      "slug": "proj-dashboard",
+      "type": "project",
+      "order": 9,
+      "createdAt": "2026-11-06T13:03:19.873Z",
+      "updatedAt": "2026-11-06T13:03:19.873Z"
+    }
+  ],
+  "service": [
+    {
+      "id": "cmw4zjdc1000bv4bais3eoys7",
+      "number": 1,
+      "title": "Website Development",
+      "slug": "website-development",
+      "icon": "Globe",
+      "summary": "Custom websites for businesses, organizations, and individuals — fast, responsive, and built to convert.",
+      "content": "End-to-end website development covering design, frontend build, backend integration, and deployment. Every site is responsive, SEO-ready, and optimized for performance.",
+      "features": "Responsive design\nSemantic, accessible HTML\nSEO-ready structure\nPerformance optimization\nCMS integration\nDeployment & setup",
+      "featured": true,
+      "order": 1,
+      "visible": true,
+      "categoryId": null,
+      "createdAt": "2026-11-06T13:03:19.874Z",
+      "updatedAt": "2026-11-06T13:03:19.874Z"
+    },
+    {
+      "id": "cmw4zjdc2000cv4ba6tee4p74",
+      "number": 2,
+      "title": "E-commerce Development",
+      "slug": "ecommerce-development",
+      "icon": "ShoppingBag",
+      "summary": "Custom online stores with product, order, customer, and inventory management built for real retail.",
+      "content": "Complete e-commerce platforms with admin dashboards, multiple templates, payment integration, order tracking, and inventory control.",
+      "features": "Product & category management\nOrder management\nCustomer accounts\nInventory tracking\nMultiple templates\nPayment gateway integration",
+      "featured": true,
+      "order": 2,
+      "visible": true,
+      "categoryId": null,
+      "createdAt": "2026-11-06T13:03:19.875Z",
+      "updatedAt": "2026-11-06T13:03:19.875Z"
+    },
+    {
+      "id": "cmw4zjdc3000dv4basp09ba1t",
+      "number": 3,
+      "title": "POS & ERP Solutions",
+      "slug": "pos-erp-solutions",
+      "icon": "MonitorSmartphone",
+      "summary": "Business management software for different industries — sales, inventory, accounts, and reporting.",
+      "content": "Advanced POS and ERP systems tailored to industries like pharmacy, fashion, electronics, grocery, and restaurant. Barcode/QR search, multi-branch, multi-payment support.",
+      "features": "POS sales & billing\nPurchase management\nInventory & suppliers\nCustomer management\nBranch management\nAccounts & reports",
+      "featured": true,
+      "order": 3,
+      "visible": true,
+      "categoryId": null,
+      "createdAt": "2026-11-06T13:03:19.875Z",
+      "updatedAt": "2026-11-06T13:03:19.875Z"
+    },
+    {
+      "id": "cmw4zjdc4000ev4ba4rte0syx",
+      "number": 4,
+      "title": "AI SEO & Search Visibility",
+      "slug": "ai-seo-search-visibility",
+      "icon": "Search",
+      "summary": "Technical SEO, content optimization, search visibility, and Generative Engine Optimization.",
+      "content": "Technical SEO audits, on-page optimization, structured data, and Generative Engine Optimization to help content surface in AI-powered search experiences.",
+      "features": "Technical SEO audit\nOn-page optimization\nStructured data\nContent optimization\nGenerative Engine Optimization\nSearch visibility reports",
+      "featured": true,
+      "order": 4,
+      "visible": true,
+      "categoryId": null,
+      "createdAt": "2026-11-06T13:03:19.876Z",
+      "updatedAt": "2026-11-06T13:03:19.876Z"
+    },
+    {
+      "id": "cmw4zjdc4000fv4ba5tcla8ta",
+      "number": 5,
+      "title": "Website Maintenance",
+      "slug": "website-maintenance",
+      "icon": "Wrench",
+      "summary": "Website updates, bug fixes, performance optimization, and ongoing support.",
+      "content": "Ongoing maintenance plans covering security updates, content changes, performance tuning, and reliable support.",
+      "features": "Security updates\nBug fixes\nPerformance optimization\nContent updates\nBackup management\nPriority support",
+      "featured": false,
+      "order": 5,
+      "visible": true,
+      "categoryId": null,
+      "createdAt": "2026-11-06T13:03:19.877Z",
+      "updatedAt": "2026-11-06T13:03:19.877Z"
+    },
+    {
+      "id": "cmw4zjdc5000gv4ba41chbk0d",
+      "number": 6,
+      "title": "Custom Business Solutions",
+      "slug": "custom-business-solutions",
+      "icon": "Boxes",
+      "summary": "Custom software and digital solutions built around your specific business requirements.",
+      "content": "Bespoke software designed from your actual workflows — dashboards, automation, integrations, and internal tools.",
+      "features": "Requirement analysis\nCustom dashboards\nWorkflow automation\nThird-party integrations\nInternal tools\nLong-term partnership",
+      "featured": false,
+      "order": 6,
+      "visible": true,
+      "categoryId": null,
+      "createdAt": "2026-11-06T13:03:19.878Z",
+      "updatedAt": "2026-11-06T13:03:19.878Z"
+    }
+  ],
+  "solution": [
+    {
+      "id": "cmw4zjdc8000hv4baoon5e0av",
+      "name": "E-commerce Solution",
+      "slug": "ecommerce-solution",
+      "tagline": "Complete online store platform with full business management",
+      "technology": "Pure PHP + MySQL",
+      "status": "Live",
+      "summary": "A production e-commerce platform with product, category, order, customer, and inventory management. Multiple templates, customizable design, and a complete admin dashboard.",
+      "description": "Built on a solid Pure PHP + MySQL foundation, this e-commerce solution powers real online stores. It handles product catalogs, variants, orders, customers, inventory, and reporting — all from one admin panel. Multiple storefront templates and customizable design let businesses launch fast.",
+      "demoUrl": "#",
+      "industries": "Fashion\nElectronics\nGrocery\nGeneral Retail",
+      "pricingNote": "One-time license + optional maintenance",
+      "order": 1,
+      "visible": true,
+      "createdAt": "2026-11-06T13:03:19.880Z",
+      "updatedAt": "2026-11-06T13:03:19.880Z",
+      "features": [
+        {
+          "id": "sf-ecom-0",
+          "solutionId": "cmw4zjdc8000hv4baoon5e0av",
+          "title": "Product management",
+          "order": 0
+        },
+        {
+          "id": "sf-ecom-1",
+          "solutionId": "cmw4zjdc8000hv4baoon5e0av",
+          "title": "Category management",
+          "order": 1
+        },
+        {
+          "id": "sf-ecom-2",
+          "solutionId": "cmw4zjdc8000hv4baoon5e0av",
+          "title": "Order management",
+          "order": 2
+        },
+        {
+          "id": "sf-ecom-3",
+          "solutionId": "cmw4zjdc8000hv4baoon5e0av",
+          "title": "Customer management",
+          "order": 3
+        },
+        {
+          "id": "sf-ecom-4",
+          "solutionId": "cmw4zjdc8000hv4baoon5e0av",
+          "title": "Inventory management",
+          "order": 4
+        },
+        {
+          "id": "sf-ecom-5",
+          "solutionId": "cmw4zjdc8000hv4baoon5e0av",
+          "title": "Multiple templates",
+          "order": 5
+        },
+        {
+          "id": "sf-ecom-6",
+          "solutionId": "cmw4zjdc8000hv4baoon5e0av",
+          "title": "Customizable design",
+          "order": 6
+        },
+        {
+          "id": "sf-ecom-7",
+          "solutionId": "cmw4zjdc8000hv4baoon5e0av",
+          "title": "Business management dashboard",
+          "order": 7
+        }
+      ],
+      "images": []
+    },
+    {
+      "id": "cmw4zjdci000iv4bag9zunjcz",
+      "name": "Advanced POS & ERP",
+      "slug": "advanced-pos-erp",
+      "tagline": "Industry-ready point of sale and enterprise resource planning",
+      "technology": "Pure PHP + MySQL",
+      "status": "Live",
+      "summary": "A full POS & ERP system for retail businesses — sales, purchase, inventory, suppliers, customers, branches, accounts, and reports. Barcode/QR search and multiple payment methods.",
+      "description": "Built on Pure PHP + MySQL, this POS & ERP system is deployed across multiple industries including pharmacy, fashion, electronics, grocery, and restaurant. It supports multi-branch operations, barcode and QR search, multiple payment methods, and detailed financial reporting.",
+      "demoUrl": "#",
+      "industries": "Pharmacy\nFashion\nElectronics\nGrocery\nRestaurant\nGeneral Retail",
+      "pricingNote": "Monthly Subscription: Startup ($150/mo) • Business ($300/mo) • Enterprise ($500/mo)",
+      "order": 2,
+      "visible": true,
+      "createdAt": "2026-11-06T13:03:19.891Z",
+      "updatedAt": "2026-11-07T10:40:01.234Z",
+      "features": [
+        {
+          "id": "sf-pos-0",
+          "solutionId": "cmw4zjdci000iv4bag9zunjcz",
+          "title": "POS sales & billing",
+          "order": 0
+        },
+        {
+          "id": "sf-pos-1",
+          "solutionId": "cmw4zjdci000iv4bag9zunjcz",
+          "title": "Purchase management",
+          "order": 1
+        },
+        {
+          "id": "sf-pos-2",
+          "solutionId": "cmw4zjdci000iv4bag9zunjcz",
+          "title": "Inventory management",
+          "order": 2
+        },
+        {
+          "id": "sf-pos-3",
+          "solutionId": "cmw4zjdci000iv4bag9zunjcz",
+          "title": "Supplier management",
+          "order": 3
+        },
+        {
+          "id": "sf-pos-4",
+          "solutionId": "cmw4zjdci000iv4bag9zunjcz",
+          "title": "Customer management",
+          "order": 4
+        },
+        {
+          "id": "sf-pos-5",
+          "solutionId": "cmw4zjdci000iv4bag9zunjcz",
+          "title": "Branch management",
+          "order": 5
+        },
+        {
+          "id": "sf-pos-6",
+          "solutionId": "cmw4zjdci000iv4bag9zunjcz",
+          "title": "Accounts",
+          "order": 6
+        },
+        {
+          "id": "sf-pos-7",
+          "solutionId": "cmw4zjdci000iv4bag9zunjcz",
+          "title": "Reports & analytics",
+          "order": 7
+        },
+        {
+          "id": "sf-pos-8",
+          "solutionId": "cmw4zjdci000iv4bag9zunjcz",
+          "title": "Barcode and QR search",
+          "order": 8
+        },
+        {
+          "id": "sf-pos-9",
+          "solutionId": "cmw4zjdci000iv4bag9zunjcz",
+          "title": "Multiple payment methods",
+          "order": 9
+        },
+        {
+          "id": "sf-pos-10",
+          "solutionId": "cmw4zjdci000iv4bag9zunjcz",
+          "title": "Industry-specific functionality",
+          "order": 10
+        }
+      ],
+      "images": []
+    }
+  ],
+  "project": [
+    {
+      "id": "cmw4zjdct000jv4banbcbyvq1",
+      "title": "E-commerce Website",
+      "slug": "ecommerce-website",
+      "categoryName": "E-commerce",
+      "technology": "Pure PHP + MySQL",
+      "status": "Live",
+      "summary": "A live e-commerce website built on Pure PHP + MySQL, handling real products, orders, and customers.",
+      "objectives": "Deliver a fast, reliable online store with complete admin control, multiple templates, and inventory management for a real retail business.",
+      "features": "Product catalog\nOrder management\nCustomer accounts\nInventory tracking\nAdmin dashboard\nResponsive storefront",
+      "devDetails": "Built with Pure PHP and MySQL. Server-side rendering, modular admin panel, and a customizable storefront layer supporting multiple templates.",
+      "demoUrl": "#",
+      "githubUrl": null,
+      "thumbnail": null,
+      "featured": true,
+      "order": 1,
+      "visible": true,
+      "categoryId": null,
+      "createdAt": "2026-11-06T13:03:19.901Z",
+      "updatedAt": "2026-11-06T13:03:19.901Z",
+      "images": []
+    },
+    {
+      "id": "cmw4zjdcu000kv4bake6r4uuk",
+      "title": "Advanced POS & ERP",
+      "slug": "advanced-pos-erp-project",
+      "categoryName": "POS / ERP",
+      "technology": "Pure PHP + MySQL",
+      "status": "Live",
+      "summary": "A live multi-industry POS & ERP system handling real sales, inventory, and reporting.",
+      "objectives": "Provide a single system for sales, purchases, inventory, suppliers, customers, branches, accounts, and reporting across multiple retail industries.",
+      "features": "POS billing\nPurchase management\nInventory & suppliers\nMulti-branch\nAccounts & reports\nBarcode/QR search",
+      "devDetails": "Built with Pure PHP and MySQL. Modular architecture for industry-specific functionality, multi-branch support, and detailed financial reporting.",
+      "demoUrl": "#",
+      "githubUrl": null,
+      "thumbnail": null,
+      "featured": true,
+      "order": 2,
+      "visible": true,
+      "categoryId": null,
+      "createdAt": "2026-11-06T13:03:19.902Z",
+      "updatedAt": "2026-11-06T13:03:19.902Z",
+      "images": []
+    },
+    {
+      "id": "cmw4zjdcv000lv4bamz82i2jj",
+      "title": "Institute Management System",
+      "slug": "institute-management-system",
+      "categoryName": "Management System",
+      "technology": "React + Node.js",
+      "status": "Coming Soon",
+      "summary": "A modern institute management system for students, teachers, courses, attendance, and fees.",
+      "objectives": "Modernize institute operations with a React + Node.js platform covering admissions, attendance, scheduling, fees, and reporting.",
+      "features": "Student management\nAttendance\nCourse scheduling\nFees & payments\nTeacher management\nReports",
+      "devDetails": "In development using React.js, Node.js, Express.js, and PostgreSQL. Designed as a modern, responsive SaaS-style platform.",
+      "demoUrl": null,
+      "githubUrl": null,
+      "thumbnail": null,
+      "featured": true,
+      "order": 3,
+      "visible": true,
+      "categoryId": null,
+      "createdAt": "2026-11-06T13:03:19.904Z",
+      "updatedAt": "2026-11-06T13:03:19.904Z",
+      "images": []
+    },
+    {
+      "id": "cmw4zjdcw000mv4baogtkohk7",
+      "title": "Modern Business Dashboard",
+      "slug": "modern-business-dashboard",
+      "categoryName": "Dashboard",
+      "technology": "React + Node.js",
+      "status": "Coming Soon",
+      "summary": "A modern analytics dashboard for business owners to track sales, inventory, and performance.",
+      "objectives": "Give business owners a single, modern dashboard to monitor sales, inventory, customers, and key performance indicators in real time.",
+      "features": "Real-time analytics\nSales tracking\nInventory overview\nCustomer insights\nCustom widgets\nExport reports",
+      "devDetails": "Planned with React.js, Node.js, and PostgreSQL. Component-driven UI with reusable chart widgets.",
+      "demoUrl": null,
+      "githubUrl": null,
+      "thumbnail": null,
+      "featured": true,
+      "order": 4,
+      "visible": true,
+      "categoryId": null,
+      "createdAt": "2026-11-06T13:03:19.905Z",
+      "updatedAt": "2026-11-06T13:03:19.905Z",
+      "images": []
+    }
+  ],
+  "testimonial": [
+    {
+      "id": "testimonial-0",
+      "clientName": "Imran Hossain",
+      "designation": "Owner",
+      "business": "Fashion Retail Store",
+      "review": "The POS system Arya built transformed our daily operations. Sales, inventory, and reports all in one place. It just works.",
+      "rating": 5,
+      "date": "2026-11-06T00:00:00.000Z",
+      "projectRef": "cmw4zjdcu000kv4bake6r4uuk",
+      "screenshotUrl": null,
+      "proofUrl": "https://linkedin.com",
+      "photoUrl": "/uploads/1794043516409-fcbc7df61965.png",
+      "visible": true,
+      "order": 0,
+      "createdAt": "2026-11-06T13:03:19.906Z",
+      "updatedAt": "2026-11-07T09:28:43.108Z"
+    },
+    {
+      "id": "testimonial-1",
+      "clientName": "Nadia Rahman",
+      "designation": "Founder",
+      "business": "Online Boutique",
+      "review": "Our e-commerce site launched smoothly and we started getting orders from day one. The admin panel is easy to manage on our own.",
+      "rating": 5,
+      "date": "2026-11-06T13:03:19.907Z",
+      "projectRef": "E-commerce Website",
+      "screenshotUrl": null,
+      "proofUrl": null,
+      "photoUrl": null,
+      "visible": true,
+      "order": 1,
+      "createdAt": "2026-11-06T13:03:19.907Z",
+      "updatedAt": "2026-11-06T13:03:19.907Z"
+    },
+    {
+      "id": "testimonial-2",
+      "clientName": "Tanvir Ahmed",
+      "designation": "Pharmacist",
+      "business": "City Pharmacy",
+      "review": "Industry-specific features for pharmacy were exactly what we needed. Barcode search and inventory tracking are flawless.",
+      "rating": 5,
+      "date": "2026-11-06T13:03:19.908Z",
+      "projectRef": "Advanced POS & ERP",
+      "screenshotUrl": null,
+      "proofUrl": null,
+      "photoUrl": null,
+      "visible": true,
+      "order": 2,
+      "createdAt": "2026-11-06T13:03:19.909Z",
+      "updatedAt": "2026-11-06T13:03:19.909Z"
+    },
+    {
+      "id": "cmw79hn8h0000ti60zmscq7lf",
+      "clientName": "Mahmudul Hasan",
+      "designation": "Managing Director",
+      "business": "Tech Retail Hub",
+      "review": "The multi-branch inventory tracking and real-time sales reporting solved our stock discrepancy completely. Outstanding service!",
+      "rating": 5,
+      "date": null,
+      "projectRef": "Advanced POS & ERP",
+      "screenshotUrl": null,
+      "proofUrl": "https://linkedin.com",
+      "photoUrl": null,
+      "visible": true,
+      "order": 3,
+      "createdAt": "2026-11-08T03:17:27.904Z",
+      "updatedAt": "2026-11-08T03:17:27.904Z"
+    },
+    {
+      "id": "cmw79hn8h0001ti60r3j65tig",
+      "clientName": "Farzana Yasmin",
+      "designation": "CEO",
+      "business": "Organic Grocery & Foods",
+      "review": "Fast delivery, clean code, and great attention to detail. Our daily transactions are handled with zero friction.",
+      "rating": 5,
+      "date": null,
+      "projectRef": "E-commerce Website",
+      "screenshotUrl": null,
+      "proofUrl": "https://google.com",
+      "photoUrl": null,
+      "visible": true,
+      "order": 4,
+      "createdAt": "2026-11-08T03:17:27.904Z",
+      "updatedAt": "2026-11-08T03:17:27.904Z"
+    }
+  ],
+  "socialLink": [
+    {
+      "id": "cmw4zjdd1000nv4ba6tdp5of8",
+      "platform": "whatsapp",
+      "label": "WhatsApp",
+      "url": "https://wa.me/8801982288911",
+      "icon": "MessageCircle",
+      "enabled": false,
+      "order": 1,
+      "createdAt": "2026-11-06T13:03:19.909Z",
+      "updatedAt": "2026-11-08T03:32:56.397Z"
+    },
+    {
+      "id": "cmw4zjdd2000ov4bai0bokgst",
+      "platform": "email",
+      "label": "Email",
+      "url": "mailto:client.freelancer.sajid@gmail.com",
+      "icon": "Mail",
+      "enabled": false,
+      "order": 2,
+      "createdAt": "2026-11-06T13:03:19.911Z",
+      "updatedAt": "2026-11-08T03:32:39.309Z"
+    },
+    {
+      "id": "cmw4zjdd3000pv4ba5rtlbdxk",
+      "platform": "facebook",
+      "label": "Facebook",
+      "url": "https://facebook.com",
+      "icon": "Facebook",
+      "enabled": true,
+      "order": 3,
+      "createdAt": "2026-11-06T13:03:19.912Z",
+      "updatedAt": "2026-11-06T13:03:19.912Z"
+    },
+    {
+      "id": "cmw4zjdd4000qv4bayr4q4kv4",
+      "platform": "instagram",
+      "label": "Instagram",
+      "url": "https://instagram.com",
+      "icon": "Instagram",
+      "enabled": true,
+      "order": 4,
+      "createdAt": "2026-11-06T13:03:19.912Z",
+      "updatedAt": "2026-11-06T13:03:19.912Z"
+    },
+    {
+      "id": "cmw4zjdd5000rv4ba20xlz167",
+      "platform": "linkedin",
+      "label": "LinkedIn",
+      "url": "https://linkedin.com",
+      "icon": "Linkedin",
+      "enabled": true,
+      "order": 5,
+      "createdAt": "2026-11-06T13:03:19.913Z",
+      "updatedAt": "2026-11-06T13:03:19.913Z"
+    },
+    {
+      "id": "cmw4zjdd5000sv4ba78c3ieeb",
+      "platform": "github",
+      "label": "GitHub",
+      "url": "https://github.com",
+      "icon": "Github",
+      "enabled": false,
+      "order": 6,
+      "createdAt": "2026-11-06T13:03:19.914Z",
+      "updatedAt": "2026-11-08T03:32:42.781Z"
+    },
+    {
+      "id": "cmw4zjdd6000tv4bamm8193hc",
+      "platform": "x",
+      "label": "X",
+      "url": "https://x.com",
+      "icon": "Twitter",
+      "enabled": false,
+      "order": 7,
+      "createdAt": "2026-11-06T13:03:19.914Z",
+      "updatedAt": "2026-11-08T03:33:36.238Z"
+    }
+  ],
+  "inquiry": [
+    {
+      "id": "cmw50jey20000v4xhiaoppweb",
+      "name": "Sarah Khan",
+      "email": "sarah@example.com",
+      "phone": "+8801712345678",
+      "service": null,
+      "budget": null,
+      "details": "I need a modern e-commerce website for my fashion boutique with about 200 products, inventory management, and multiple payment methods. Timeline around 6 weeks.",
+      "status": "new",
+      "createdAt": "2026-11-06T13:31:21.578Z",
+      "updatedAt": "2026-11-06T13:31:21.578Z"
+    },
+    {
+      "id": "cmw672ngv0000tijcadavz058",
+      "name": "vedeti1337@dd2car.com",
+      "email": "romegof807@archifun.com",
+      "phone": "wweew",
+      "service": "E-commerce Development",
+      "budget": "$500 – $1,500",
+      "details": "dfsfsdsdf eee",
+      "status": "new",
+      "createdAt": "2026-11-07T09:22:02.958Z",
+      "updatedAt": "2026-11-07T09:22:02.958Z"
+    }
+  ],
+  "seoSetting": [
+    {
+      "id": "cmw4zjddc000uv4bauq95e13x",
+      "page": "home",
+      "metaTitle": "Arya Dev — Full-Stack Developer & Business Solutions Specialist",
+      "metaDescription": "Premium portfolio: websites, e-commerce, POS/ERP, AI SEO and custom business solutions.",
+      "canonicalUrl": null,
+      "ogImageUrl": null,
+      "robots": "index, follow",
+      "createdAt": "2026-11-06T13:03:19.920Z",
+      "updatedAt": "2026-11-06T13:03:19.920Z"
+    },
+    {
+      "id": "cmw4zjddd000vv4baj1m4g2w7",
+      "page": "services",
+      "metaTitle": "Services — Arya Dev",
+      "metaDescription": "Website development, e-commerce, POS/ERP, AI SEO, maintenance, custom solutions.",
+      "canonicalUrl": null,
+      "ogImageUrl": null,
+      "robots": "index, follow",
+      "createdAt": "2026-11-06T13:03:19.921Z",
+      "updatedAt": "2026-11-06T13:03:19.921Z"
+    },
+    {
+      "id": "cmw4zjddd000wv4ba8wj9x386",
+      "page": "projects",
+      "metaTitle": "Projects — Arya Dev",
+      "metaDescription": "Featured projects including e-commerce, POS/ERP, and upcoming React + Node.js builds.",
+      "canonicalUrl": null,
+      "ogImageUrl": null,
+      "robots": "index, follow",
+      "createdAt": "2026-11-06T13:03:19.922Z",
+      "updatedAt": "2026-11-06T13:03:19.922Z"
+    }
+  ],
+  "navigationItem": [
+    {
+      "id": "nav-0",
+      "label": "Home",
+      "href": "#home",
+      "icon": null,
+      "order": 1,
+      "enabled": true,
+      "createdAt": "2026-11-06T13:03:19.915Z",
+      "updatedAt": "2026-11-06T13:03:19.915Z"
+    },
+    {
+      "id": "nav-1",
+      "label": "About",
+      "href": "#about",
+      "icon": null,
+      "order": 2,
+      "enabled": true,
+      "createdAt": "2026-11-06T13:03:19.916Z",
+      "updatedAt": "2026-11-06T13:03:19.916Z"
+    },
+    {
+      "id": "nav-2",
+      "label": "Services",
+      "href": "#services",
+      "icon": null,
+      "order": 3,
+      "enabled": true,
+      "createdAt": "2026-11-06T13:03:19.916Z",
+      "updatedAt": "2026-11-06T13:03:19.916Z"
+    },
+    {
+      "id": "nav-3",
+      "label": "Solutions",
+      "href": "#solutions",
+      "icon": null,
+      "order": 4,
+      "enabled": true,
+      "createdAt": "2026-11-06T13:03:19.917Z",
+      "updatedAt": "2026-11-06T13:03:19.917Z"
+    },
+    {
+      "id": "nav-4",
+      "label": "Projects",
+      "href": "#projects",
+      "icon": null,
+      "order": 5,
+      "enabled": true,
+      "createdAt": "2026-11-06T13:03:19.917Z",
+      "updatedAt": "2026-11-06T13:03:19.917Z"
+    },
+    {
+      "id": "nav-5",
+      "label": "Contact",
+      "href": "#contact",
+      "icon": null,
+      "order": 6,
+      "enabled": true,
+      "createdAt": "2026-11-06T13:03:19.918Z",
+      "updatedAt": "2026-11-06T13:03:19.918Z"
+    }
+  ],
+  "siteSetting": [
+    {
+      "id": "settings-main",
+      "siteName": "Sajid Al Nihal",
+      "logoUrl": "/uploads/1794047031174-6cb04b17201b.png",
+      "faviconUrl": "/uploads/1794047020080-11ffd2ea6ebe.png",
+      "primaryColor": "#8B5CF6",
+      "contactEmail": "client.freelancer.sajid@gmail.com",
+      "whatsappNumber": "+8801982288911",
+      "footerContent": "Building digital experiences for real businesses.",
+      "createdAt": "2026-11-06T13:03:19.919Z",
+      "updatedAt": "2026-11-08T03:28:25.382Z"
+    }
+  ]
+}

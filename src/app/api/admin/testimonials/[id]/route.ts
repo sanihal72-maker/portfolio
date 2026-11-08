@@ -18,6 +18,7 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
   if (body.date !== undefined) data.date = body.date ? new Date(String(body.date)) : null;
   if (body.projectRef !== undefined) data.projectRef = body.projectRef ? String(body.projectRef) : null;
   if (body.screenshotUrl !== undefined) data.screenshotUrl = body.screenshotUrl ? String(body.screenshotUrl) : null;
+  if (body.proofUrl !== undefined) data.proofUrl = body.proofUrl ? String(body.proofUrl) : null;
   if (body.photoUrl !== undefined) data.photoUrl = body.photoUrl ? String(body.photoUrl) : null;
   if (body.visible !== undefined) data.visible = Boolean(body.visible);
   if (body.order !== undefined) data.order = Number(body.order);

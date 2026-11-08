@@ -46,6 +46,18 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  React.useEffect(() => {
+    if (settings?.faviconUrl) {
+      let link = document.querySelector("link[rel*='icon']") as HTMLLinkElement | null;
+      if (!link) {
+        link = document.createElement("link");
+        link.rel = "icon";
+        document.head.appendChild(link);
+      }
+      link.href = settings.faviconUrl;
+    }
+  }, [settings?.faviconUrl]);
+
   const siteName = settings?.siteName || profile?.name || "Arya Dev";
 
   return (
@@ -60,9 +72,19 @@ export function Navbar() {
       >
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <a href="#home" className="group flex items-center gap-2.5" aria-label={siteName}>
-            <span className="flex size-9 items-center justify-center rounded-lg border border-border bg-card text-primary transition-colors group-hover:border-primary/50">
-              <span className="text-base font-bold tracking-tight">A</span>
-            </span>
+            {settings?.logoUrl ? (
+              <img
+                src={settings.logoUrl}
+                alt={siteName}
+                className="size-9 rounded-lg border border-border object-cover transition-colors group-hover:border-primary/50"
+              />
+            ) : (
+              <span className="flex size-9 items-center justify-center rounded-lg border border-border bg-card text-primary transition-colors group-hover:border-primary/50">
+                <span className="text-base font-bold tracking-tight">
+                  {siteName ? siteName.charAt(0).toUpperCase() : "S"}
+                </span>
+              </span>
+            )}
             <span className="hidden text-sm font-semibold tracking-tight sm:block">
               {siteName}
             </span>

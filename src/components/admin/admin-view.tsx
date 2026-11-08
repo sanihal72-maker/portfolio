@@ -70,12 +70,14 @@ export function AdminView() {
       })
       .finally(() => {
         setAuth({ status: "unauthenticated" });
-        setView("portfolio");
       });
   }
 
   function handleBackToSite() {
     setView("portfolio");
+    if (typeof window !== "undefined") {
+      window.location.href = "/";
+    }
   }
 
   if (auth.status === "loading") {

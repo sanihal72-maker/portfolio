@@ -26,6 +26,7 @@ export async function POST(req: Request) {
       date: body.date ? new Date(String(body.date)) : null,
       projectRef: body.projectRef ? String(body.projectRef) : null,
       screenshotUrl: body.screenshotUrl ? String(body.screenshotUrl) : null,
+      proofUrl: body.proofUrl ? String(body.proofUrl) : null,
       photoUrl: body.photoUrl ? String(body.photoUrl) : null,
       visible: body.visible !== false,
       order: Number(body.order ?? 0),

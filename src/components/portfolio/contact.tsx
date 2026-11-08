@@ -35,10 +35,11 @@ export function Contact() {
 
   const whatsapp = socials.find((s) => s.platform === "whatsapp");
   const emailSocial = socials.find((s) => s.platform === "email");
-  const email = emailSocial?.url?.replace("mailto:", "") || profile?.email || settings?.contactEmail || "";
-  const whatsappUrl =
-    whatsapp?.url ||
-    (settings?.whatsappNumber ? `https://wa.me/${settings.whatsappNumber.replace(/[^0-9]/g, "")}` : "#");
+  const email = settings?.contactEmail || emailSocial?.url?.replace("mailto:", "") || profile?.email || "";
+  const whatsappNumber = settings?.whatsappNumber || profile?.phone || "";
+  const whatsappUrl = whatsappNumber
+    ? `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, "")}`
+    : (whatsapp?.url || "#");
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -77,7 +78,7 @@ export function Contact() {
   }
 
   return (
-    <Section id="contact" className="bg-surface-2/40">
+    <Section id="contact" className="pt-8 lg:pt-12 pb-20 lg:pb-28 bg-surface-2/40">
       <SectionHeading index="09" title="Let's Work Together" />
 
       <div className="mt-12 grid gap-6 lg:grid-cols-12 lg:gap-8">

@@ -105,6 +105,7 @@ export type Testimonial = {
   date: string | null;
   projectRef: string | null;
   screenshotUrl: string | null;
+  proofUrl: string | null;
   photoUrl: string | null;
   visible: boolean;
   order: number;

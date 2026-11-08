@@ -122,6 +122,74 @@ export function Solutions() {
                   </div>
                 )}
 
+                {/* Monthly Subscription Pricing for POS */}
+                {sol.slug.includes("pos") || sol.name.toLowerCase().includes("pos") ? (
+                  <div className="mt-6 rounded-xl border border-primary/25 bg-gradient-to-b from-card/90 to-surface-2/80 p-4 shadow-sm">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <span className="size-2 rounded-full bg-emerald-400 animate-pulse" />
+                        <span className="text-xs font-bold uppercase tracking-wider text-foreground">
+                          Monthly Subscription Plans
+                        </span>
+                      </div>
+                      <span className="rounded-full border border-primary/30 bg-primary/10 px-2.5 py-0.5 text-[10px] font-semibold text-primary">
+                        Cloud / Hosted
+                      </span>
+                    </div>
+
+                    <div className="mt-3.5 grid gap-3 sm:grid-cols-3">
+                      {/* Startup Tier */}
+                      <div className="flex flex-col justify-between rounded-lg border border-border/80 bg-background/60 p-3">
+                        <div>
+                          <div className="text-xs font-semibold text-muted-foreground">Startup</div>
+                          <div className="mt-1 flex items-baseline gap-1">
+                            <span className="text-xl font-extrabold text-foreground">$150</span>
+                            <span className="text-xs text-muted-foreground">/mo</span>
+                          </div>
+                        </div>
+                        <p className="mt-2 text-[11px] text-muted-foreground">
+                          Single store & standard billing
+                        </p>
+                      </div>
+
+                      {/* Business Tier */}
+                      <div className="relative flex flex-col justify-between rounded-lg border border-primary/50 bg-primary/10 p-3 shadow-md">
+                        <span className="absolute -top-2.5 right-2 rounded-full bg-primary px-2 py-0.5 text-[9px] font-bold uppercase text-white shadow-sm">
+                          Popular
+                        </span>
+                        <div>
+                          <div className="text-xs font-semibold text-primary">Business</div>
+                          <div className="mt-1 flex items-baseline gap-1">
+                            <span className="text-xl font-extrabold text-foreground">$300</span>
+                            <span className="text-xs text-muted-foreground">/mo</span>
+                          </div>
+                        </div>
+                        <p className="mt-2 text-[11px] text-muted-foreground">
+                          Multi-branch & inventory sync
+                        </p>
+                      </div>
+
+                      {/* Enterprise Tier */}
+                      <div className="flex flex-col justify-between rounded-lg border border-border/80 bg-background/60 p-3">
+                        <div>
+                          <div className="text-xs font-semibold text-muted-foreground">Enterprise</div>
+                          <div className="mt-1 flex items-baseline gap-1">
+                            <span className="text-xl font-extrabold text-foreground">$500</span>
+                            <span className="text-xs text-muted-foreground">/mo</span>
+                          </div>
+                        </div>
+                        <p className="mt-2 text-[11px] text-muted-foreground">
+                          Full ERP & 24/7 priority support
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ) : sol.pricingNote ? (
+                  <div className="mt-5 text-xs text-muted-foreground">
+                    <span className="font-medium text-foreground">Pricing:</span> {sol.pricingNote}
+                  </div>
+                ) : null}
+
                 <div className="mt-8 flex flex-wrap items-center gap-3">
                   <button
                     onClick={() => openDetail({ kind: "solution", id: sol.id })}

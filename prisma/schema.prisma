@@ -4,7 +4,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -170,6 +170,7 @@ model Testimonial {
   date         DateTime?
   projectRef   String? // related project title
   screenshotUrl String? // original review screenshot
+  proofUrl      String? // proof link (live url, review verification, upwork/fiverr/linkedin link)
   photoUrl     String?
   visible      Boolean  @default(true)
   order        Int      @default(0)
