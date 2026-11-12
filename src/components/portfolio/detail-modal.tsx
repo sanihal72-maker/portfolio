@@ -149,7 +149,7 @@ export function DetailModal() {
                   <div className="rounded-lg border border-border bg-background/60 p-3">
                     <div className="text-xs font-medium text-muted-foreground">Startup</div>
                     <div className="mt-1 flex items-baseline gap-1">
-                      <span className="text-lg font-bold text-foreground">$150</span>
+                      <span className="text-lg font-bold text-foreground">৳150</span>
                       <span className="text-xs text-muted-foreground">/mo</span>
                     </div>
                     <p className="mt-1 text-[11px] text-muted-foreground">
@@ -162,7 +162,7 @@ export function DetailModal() {
                     </span>
                     <div className="text-xs font-medium text-primary">Business</div>
                     <div className="mt-1 flex items-baseline gap-1">
-                      <span className="text-lg font-bold text-foreground">$300</span>
+                      <span className="text-lg font-bold text-foreground">৳300</span>
                       <span className="text-xs text-muted-foreground">/mo</span>
                     </div>
                     <p className="mt-1 text-[11px] text-muted-foreground">
@@ -172,7 +172,7 @@ export function DetailModal() {
                   <div className="rounded-lg border border-border bg-background/60 p-3">
                     <div className="text-xs font-medium text-muted-foreground">Enterprise</div>
                     <div className="mt-1 flex items-baseline gap-1">
-                      <span className="text-lg font-bold text-foreground">$500</span>
+                      <span className="text-lg font-bold text-foreground">৳500</span>
                       <span className="text-xs text-muted-foreground">/mo</span>
                     </div>
                     <p className="mt-1 text-[11px] text-muted-foreground">

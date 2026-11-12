@@ -143,7 +143,7 @@ export function Solutions() {
                         <div>
                           <div className="text-xs font-semibold text-muted-foreground">Startup</div>
                           <div className="mt-1 flex items-baseline gap-1">
-                            <span className="text-xl font-extrabold text-foreground">$150</span>
+                            <span className="text-xl font-extrabold text-foreground">৳150</span>
                             <span className="text-xs text-muted-foreground">/mo</span>
                           </div>
                         </div>
@@ -160,7 +160,7 @@ export function Solutions() {
                         <div>
                           <div className="text-xs font-semibold text-primary">Business</div>
                           <div className="mt-1 flex items-baseline gap-1">
-                            <span className="text-xl font-extrabold text-foreground">$300</span>
+                            <span className="text-xl font-extrabold text-foreground">৳300</span>
                             <span className="text-xs text-muted-foreground">/mo</span>
                           </div>
                         </div>
@@ -174,7 +174,7 @@ export function Solutions() {
                         <div>
                           <div className="text-xs font-semibold text-muted-foreground">Enterprise</div>
                           <div className="mt-1 flex items-baseline gap-1">
-                            <span className="text-xl font-extrabold text-foreground">$500</span>
+                            <span className="text-xl font-extrabold text-foreground">৳500</span>
                             <span className="text-xs text-muted-foreground">/mo</span>
                           </div>
                         </div>
