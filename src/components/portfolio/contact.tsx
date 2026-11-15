@@ -4,7 +4,7 @@ import * as React from "react";
 import { Send, MessageCircle, Mail, Loader2, CheckCircle2 } from "lucide-react";
 import { usePortfolio } from "./data-context";
 import { Section, SectionHeading } from "./section";
-import { getIcon } from "./icons";
+import { getIcon, getSocialIcon } from "./icons";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -236,7 +236,7 @@ export function Contact() {
                 {socials
                   .filter((s) => s.platform !== "whatsapp" && s.platform !== "email")
                   .map((s) => {
-                    const Icon = getIcon(s.icon);
+                    const Icon = getSocialIcon(s.platform, s.icon);
                     return (
                       <a
                         key={s.id}

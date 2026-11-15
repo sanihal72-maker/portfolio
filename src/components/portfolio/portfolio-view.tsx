@@ -68,9 +68,9 @@ export function PortfolioView() {
 
   return (
     <PortfolioDataProvider data={data}>
-      <div className="flex min-h-screen flex-col">
+      <div className="flex min-h-screen flex-col overflow-x-hidden w-full">
         <Navbar />
-        <main className="flex-1 pb-16 md:pb-0">
+        <main className="flex-1 pb-16 md:pb-0 overflow-x-hidden w-full">
           <Hero />
           <About />
           <Technologies />

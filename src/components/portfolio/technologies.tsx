@@ -23,7 +23,7 @@ function TechBadge({
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.4, delay }}
       whileHover={{ y: -3 }}
-      className="group flex items-center gap-3 rounded-xl border border-border bg-card p-4 transition-colors hover:border-primary/40"
+      className="group flex items-center gap-2.5 sm:gap-3 rounded-xl border border-border bg-card p-3 sm:p-4 transition-colors hover:border-primary/40 min-w-0 overflow-hidden"
     >
       <TechLogo name={name} fallbackColor={color} />
       <div className="min-w-0">
@@ -62,7 +62,7 @@ export function Technologies() {
                 {String(items.length).padStart(2, "0")}
               </span>
             </div>
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+            <div className="grid grid-cols-2 gap-2.5 sm:gap-3 sm:grid-cols-3 lg:grid-cols-4 w-full">
               {items.map((s, i) => (
                 <TechBadge
                   key={s.id}

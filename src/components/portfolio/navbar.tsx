@@ -1,9 +1,9 @@
 "use client";
 
 import * as React from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Home, User, Briefcase, FolderGit2, MessageSquare } from "lucide-react";
 import { usePortfolio } from "./data-context";
-import { getIcon } from "./icons";
+import { getIcon, getSocialIcon } from "./icons";
 import { cn } from "@/lib/utils";
 
 const SECTIONS = [
@@ -16,10 +16,11 @@ const SECTIONS = [
 ];
 
 const MOBILE_SECTIONS = [
-  { label: "Home", href: "#home" },
-  { label: "Services", href: "#services" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "#home", icon: Home },
+  { label: "About", href: "#about", icon: User },
+  { label: "Services", href: "#services", icon: Briefcase },
+  { label: "Projects", href: "#projects", icon: FolderGit2 },
+  { label: "Contact", href: "#contact", icon: MessageSquare },
 ];
 
 export function Navbar() {
@@ -147,7 +148,7 @@ export function Navbar() {
                   .filter((s) => s.platform !== "whatsapp" && s.platform !== "email")
                   .slice(0, 5)
                   .map((s) => {
-                    const Icon = getIcon(s.icon);
+                    const Icon = getSocialIcon(s.platform, s.icon);
                     return (
                       <a
                         key={s.id}
@@ -169,29 +170,47 @@ export function Navbar() {
 
       {/* mobile bottom navigation */}
       <nav
-        className="fixed inset-x-0 bottom-0 z-50 border-t border-border bg-background/95 backdrop-blur-xl md:hidden"
+        className="fixed inset-x-0 bottom-0 z-50 border-t border-border/80 bg-[#101015]/95 backdrop-blur-2xl shadow-[0_-8px_24px_rgba(0,0,0,0.45)] md:hidden"
         aria-label="Mobile bottom"
-        style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+        style={{ paddingBottom: "max(0.4rem, env(safe-area-inset-bottom))" }}
       >
-        <div className="mx-auto flex max-w-md items-center justify-around px-2 py-1.5">
-          {MOBILE_SECTIONS.map((s) => (
-            <a
-              key={s.href}
-              href={s.href}
-              className={cn(
-                "flex flex-1 flex-col items-center gap-0.5 rounded-lg px-2 py-1.5 text-[11px] font-medium transition-colors",
-                active === s.href ? "text-primary" : "text-muted-foreground"
-              )}
-            >
-              <span
+        <div className="mx-auto flex max-w-md items-center justify-around px-2 pt-1.5 pb-0.5">
+          {MOBILE_SECTIONS.map((s) => {
+            const Icon = s.icon;
+            const isActive = active === s.href;
+            return (
+              <a
+                key={s.href}
+                href={s.href}
                 className={cn(
-                  "h-0.5 w-6 rounded-full transition-colors",
-                  active === s.href ? "bg-primary" : "bg-transparent"
+                  "relative flex flex-1 flex-col items-center justify-center gap-1 rounded-xl py-1 px-1 transition-all duration-200",
+                  isActive ? "text-primary" : "text-muted-foreground hover:text-foreground"
                 )}
-              />
-              {s.label}
-            </a>
-          ))}
+              >
+                <div
+                  className={cn(
+                    "flex size-8 items-center justify-center rounded-xl transition-all duration-200",
+                    isActive
+                      ? "bg-primary/20 text-primary shadow-sm scale-105 border border-primary/30"
+                      : "text-muted-foreground/80 hover:text-foreground"
+                  )}
+                >
+                  <Icon className="size-4 shrink-0" />
+                </div>
+                <span
+                  className={cn(
+                    "text-[10px] font-medium tracking-tight leading-none transition-colors",
+                    isActive ? "text-primary font-semibold" : "text-muted-foreground"
+                  )}
+                >
+                  {s.label}
+                </span>
+                {isActive && (
+                  <span className="absolute -top-1.5 h-0.5 w-5 rounded-full bg-primary shadow-[0_0_8px_rgba(139,92,246,0.8)]" />
+                )}
+              </a>
+            );
+          })}
         </div>
       </nav>
     </>

@@ -17,7 +17,7 @@ export function SectionHeading({
   return (
     <div
       className={cn(
-        "flex flex-col gap-4",
+        "flex flex-col gap-3 sm:gap-4 max-w-full overflow-hidden",
         align === "center" && "items-center text-center",
         className
       )}
@@ -27,7 +27,7 @@ export function SectionHeading({
           {index}
         </span>
       )}
-      <h2 className="text-balance text-3xl font-bold leading-[1.1] tracking-tight sm:text-4xl lg:text-5xl">
+      <h2 className="text-balance text-2xl sm:text-4xl lg:text-5xl font-bold leading-[1.15] tracking-tight break-words">
         {title}
       </h2>
     </div>
@@ -47,7 +47,7 @@ export function Section({
     <section
       id={id}
       className={cn(
-        "relative mx-auto w-full max-w-7xl scroll-mt-20 px-4 py-20 sm:px-6 lg:px-8 lg:py-28",
+        "relative mx-auto w-full max-w-7xl scroll-mt-20 px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-28 overflow-hidden",
         className
       )}
     >

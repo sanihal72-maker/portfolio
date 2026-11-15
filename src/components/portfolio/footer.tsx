@@ -4,7 +4,7 @@ import * as React from "react";
 import { Mail, MapPin, ArrowUp, MessageCircle, Phone } from "lucide-react";
 import { usePortfolio } from "./data-context";
 import { useAppStore } from "@/store/app-store";
-import { getIcon } from "./icons";
+import { getIcon, getSocialIcon } from "./icons";
 
 export function Footer() {
   const { settings, profile, socials, navigation, services } = usePortfolio();
@@ -39,7 +39,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative mt-auto border-t border-border bg-gradient-to-b from-background to-[#0d0d12]">
+    <footer className="relative mt-auto border-t border-border bg-gradient-to-b from-background to-[#0d0d12] pb-24 md:pb-0">
       <div className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {/* Col 1: Brand & Contact */}
@@ -160,7 +160,7 @@ export function Footer() {
               {socials
                 .filter((s) => s.platform !== "whatsapp")
                 .map((s) => {
-                  const Icon = getIcon(s.icon);
+                  const Icon = getSocialIcon(s.platform, s.icon);
                   const href = s.platform === "email" && email ? `mailto:${email}` : s.url;
                   return (
                     <a

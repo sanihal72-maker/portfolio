@@ -19,7 +19,7 @@ import {
   Boxes,
 } from "lucide-react";
 import { usePortfolio } from "./data-context";
-import { getIcon } from "./icons";
+import { getIcon, getSocialIcon } from "./icons";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function Hero() {
@@ -153,7 +153,7 @@ export function Hero() {
                 .filter((s) => s.platform !== "whatsapp")
                 .slice(0, 6)
                 .map((s) => {
-                  const Icon = getIcon(s.icon);
+                  const Icon = getSocialIcon(s.platform, s.icon);
                   return (
                     <a
                       key={s.id}
@@ -196,15 +196,15 @@ export function Hero() {
           <motion.div
             animate={{ y: [0, -8, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -left-4 -top-6 z-20 flex items-center gap-2.5 rounded-xl border border-primary/30 bg-card/90 px-3.5 py-2 shadow-xl backdrop-blur-md"
+            className="absolute left-2 -top-4 sm:-left-4 sm:-top-6 z-20 flex items-center gap-2 rounded-xl border border-primary/30 bg-card/90 px-2.5 py-1.5 sm:px-3.5 sm:py-2 shadow-xl backdrop-blur-md"
           >
-            <div className="relative flex size-2.5">
+            <div className="relative flex size-2 sm:size-2.5">
               <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex size-2.5 rounded-full bg-emerald-500" />
+              <span className="relative inline-flex size-2 sm:size-2.5 rounded-full bg-emerald-500" />
             </div>
-            <div className="text-xs">
+            <div className="text-[11px] sm:text-xs">
               <span className="font-semibold text-foreground">Production-Ready</span>
-              <span className="ml-1 text-muted-foreground">• 99.9% Uptime</span>
+              <span className="ml-1 text-muted-foreground hidden xs:inline sm:inline">• 99.9% Uptime</span>
             </div>
           </motion.div>
 
@@ -212,62 +212,62 @@ export function Hero() {
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-            className="absolute -right-3 -top-5 z-20 hidden sm:flex items-center gap-2 rounded-xl border border-border bg-card/90 px-3 py-1.5 shadow-lg backdrop-blur-md"
+            className="absolute -right-2 -top-4 sm:-right-3 sm:-top-5 z-20 hidden sm:flex items-center gap-2 rounded-xl border border-border bg-card/90 px-3 py-1.5 shadow-lg backdrop-blur-md"
           >
             <Zap className="size-3.5 text-amber-400" />
             <span className="text-xs font-medium text-foreground">Turbopack Fast</span>
           </motion.div>
 
           {/* Main Interactive Terminal / Dashboard Card */}
-          <div className="relative overflow-hidden rounded-2xl border border-border/80 bg-gradient-to-b from-[#181822]/95 to-[#101017]/95 p-1 shadow-2xl backdrop-blur-xl">
+          <div className="relative overflow-hidden rounded-2xl border border-border/80 bg-gradient-to-b from-[#181822]/95 to-[#101017]/95 p-1 shadow-2xl backdrop-blur-xl w-full max-w-full">
             {/* Window Header */}
-            <div className="flex items-center justify-between border-b border-border/60 bg-surface-2/60 px-4 py-3">
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border/60 bg-surface-2/60 px-3 py-2.5 sm:px-4 sm:py-3">
               {/* Traffic light dots */}
-              <div className="flex items-center gap-2">
-                <span className="size-3 rounded-full bg-rose-500/80 transition-opacity hover:opacity-100" />
-                <span className="size-3 rounded-full bg-amber-500/80 transition-opacity hover:opacity-100" />
-                <span className="size-3 rounded-full bg-emerald-500/80 transition-opacity hover:opacity-100" />
-                <span className="ml-2 font-mono text-[11px] text-muted-foreground/80">
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <span className="size-2.5 sm:size-3 rounded-full bg-rose-500/80 transition-opacity hover:opacity-100" />
+                <span className="size-2.5 sm:size-3 rounded-full bg-amber-500/80 transition-opacity hover:opacity-100" />
+                <span className="size-2.5 sm:size-3 rounded-full bg-emerald-500/80 transition-opacity hover:opacity-100" />
+                <span className="ml-1 sm:ml-2 font-mono text-[10px] sm:text-[11px] text-muted-foreground/80 hidden md:inline truncate max-w-[140px]">
                   ~/workspace/{name ? name.toLowerCase().replace(/[^a-z0-9]/g, "-").replace(/-+/g, "-").replace(/^-|-$/g, "") : "core"}
                 </span>
               </div>
 
               {/* Tabs */}
-              <div className="flex items-center gap-1 rounded-lg bg-card/80 p-0.5 border border-border/40">
+              <div className="flex items-center gap-0.5 sm:gap-1 rounded-lg bg-card/80 p-0.5 border border-border/40 overflow-x-auto max-w-full">
                 <button
                   type="button"
                   onClick={() => setActiveTab("code")}
-                  className={`flex items-center gap-1.5 rounded-md px-2.5 py-1 text-xs font-medium transition-all ${
+                  className={`flex items-center gap-1 sm:gap-1.5 rounded-md px-2 py-1 text-[11px] sm:text-xs font-medium transition-all ${
                     activeTab === "code"
                       ? "bg-primary text-white shadow-sm"
                       : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
-                  <Code2 className="size-3.5" />
+                  <Code2 className="size-3 sm:size-3.5" />
                   <span>developer.ts</span>
                 </button>
                 <button
                   type="button"
                   onClick={() => setActiveTab("arch")}
-                  className={`flex items-center gap-1.5 rounded-md px-2.5 py-1 text-xs font-medium transition-all ${
+                  className={`flex items-center gap-1 sm:gap-1.5 rounded-md px-2 py-1 text-[11px] sm:text-xs font-medium transition-all ${
                     activeTab === "arch"
                       ? "bg-primary text-white shadow-sm"
                       : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
-                  <Layers className="size-3.5" />
+                  <Layers className="size-3 sm:size-3.5" />
                   <span>architecture</span>
                 </button>
                 <button
                   type="button"
                   onClick={() => setActiveTab("metrics")}
-                  className={`flex items-center gap-1.5 rounded-md px-2.5 py-1 text-xs font-medium transition-all ${
+                  className={`flex items-center gap-1 sm:gap-1.5 rounded-md px-2 py-1 text-[11px] sm:text-xs font-medium transition-all ${
                     activeTab === "metrics"
                       ? "bg-primary text-white shadow-sm"
                       : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
-                  <Activity className="size-3.5" />
+                  <Activity className="size-3 sm:size-3.5" />
                   <span>metrics</span>
                 </button>
               </div>
@@ -284,7 +284,7 @@ export function Hero() {
             </div>
 
             {/* Window Body */}
-            <div className="min-h-[340px] p-4 sm:p-6 font-mono text-xs sm:text-[13px] leading-relaxed">
+            <div className="min-h-[300px] sm:min-h-[340px] p-3 sm:p-6 font-mono text-xs sm:text-[13px] leading-relaxed overflow-x-auto">
               <AnimatePresence mode="wait">
                 {activeTab === "code" && (
                   <motion.div
@@ -502,7 +502,7 @@ export function Hero() {
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="absolute -left-5 -bottom-5 z-20 flex items-center gap-3 rounded-xl border border-border bg-card/95 px-4 py-2.5 shadow-xl backdrop-blur-md"
+            className="absolute left-2 -bottom-4 sm:-left-5 sm:-bottom-5 z-20 flex items-center gap-2.5 sm:gap-3 rounded-xl border border-border bg-card/95 px-3 py-2 sm:px-4 sm:py-2.5 shadow-xl backdrop-blur-md"
           >
             <div className="flex size-8 items-center justify-center rounded-lg bg-primary/20 text-primary font-bold text-sm">
               {yearsExperience}+
